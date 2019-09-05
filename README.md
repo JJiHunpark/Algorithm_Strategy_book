@@ -4,7 +4,5 @@
 
 #### 정리
 
-- 블로그
-
-  > <https://data-make.tistory.com/>
+- <https://data-make.tistory.com/>
 
