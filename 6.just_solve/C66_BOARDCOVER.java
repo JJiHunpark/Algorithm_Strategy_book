@@ -1,19 +1,16 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class C66_BOARDCOVER {
 	// 'ㄱ'자 블록을 놓을 수 있는 상대적 위치
-	static int[][][] blockType = {
+	public static int[][][] blockType = {
 			{{0,0}, {0,1}, {1,0}},
 			{{0,0}, {0,1}, {1,1}},
 			{{0,0}, {1,0}, {1,1}},
-			{{0,0}, {1,1}, {1,-1}},
+			{{0,0}, {1,0}, {1,-1}},
 	};
-	static int[][] board;	// 게임판
-	static int C, H, W;
+	public static int[][] board;
+	public static int C, H, W;
 	
 	public static boolean set(int y, int x, int type, int act) {
 		boolean check = true;
@@ -21,61 +18,14 @@ public class C66_BOARDCOVER {
 		for(int i=0; i<3; i++) {
 			int dy = y + blockType[type][i][0];
 			int dx = x + blockType[type][i][1];
-			if(dy<0 | dy>=board[0].length | dx<0 | dx>=board[0].length)	// 블록이 게임판으로 나갈 경우
+			if(dy<0 || dy>=H || dx<0 || dx>=W)	// 블록이 게임판으로 나갈 경우
 				check = false;
-			else if(board[dy][dx] + act > 1) // 블록이 겹치는 경우
+			else if((board[dy][dx] += act) > 1) // 블록이 겹치는 경우 & 블록 치우기
 				check = false;
 		}
 		return check;
 	}
 	
-	public static void Boardcover() throws Exception {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-	
-		/* 1. 테스트 케이스 입력 */
-		C = Integer.parseInt(br.readLine());
-		assert C <= 30 : "Error :: C(testCase) <= 30";
-		
-		for(int tc=0; tc<C; tc++) {
-			/* 2. H(Height)과 W(Width) 입력 */
-			StringTokenizer st = new StringTokenizer(br.readLine());
-			H = Integer.parseInt(st.nextToken());  // 학생의 수
-			W = Integer.parseInt(st.nextToken());  // 친구 쌍의 수
-			assert 1 <= H | 1 <= W | H <= 20 | W <=2 : "Error :: 1 <= H,W <= 20";
-		
-			/* 3. board에 블럭을 저장 */
-			board = new int[H][W];
-			int countWhiteBlock = 0;
-			for(int hg=0; hg<H; hg++) {
-				StringTokenizer bk = new StringTokenizer(br.readLine());
-				String tempString = bk.nextToken();
-				for(int wd=0; wd<W; wd++) {
-					char temp = tempString.charAt(wd);
-					int block = (temp=='#') ? 1:0;
-					if(block == 0)	countWhiteBlock++;
-					board[hg][wd] = block;
-				}
-			}
-			// 데이터가 잘 들어갔는지 출력해서 확인
-//			for(int hg=0; hg<H; hg++) {
-//				for(int wd=0; wd<W; wd++) {
-//					bw.write(String.format("%d",board[hg][wd]));
-//				}
-//				bw.write("\n");
-//			}
-//			bw.write("\n");
-
-			assert countWhiteBlock <= 50 : // 흰 칸이 50칸을 초과하면 에러 발생
-				"Error :: countWhiteBlock <= 50";
-			// 흰 칸이 3의 배수가 아닐 경우 0 출력 
-			if(countWhiteBlock%3 != 0)
-				bw.write(String.format("%d\n", 0));
-			else
-				bw.write(String.format("%d\n", cover()));
-		}
-		bw.close();
-	}
 	/* 4. board의 모든 빈 칸을 덮을 수 있는 방법의 수를 반환하는 함수 */
 	public static int cover() {
 		// 채우지 못 한 가장 위&왼쪽 에 있는 칸 탐색
@@ -93,6 +43,7 @@ public class C66_BOARDCOVER {
 		}
 		// 모든 칸을 채웠을 경우 1 반환
 		if(y == -1) return 1;
+		
 		int ret = 0;
 		// 가장 위&왼쪽에 있는 빈 칸에 'ㄱ'블록을 덮을 4가지 방법을 시도
 		for(int type=0; type<4; type++) {
@@ -103,6 +54,62 @@ public class C66_BOARDCOVER {
 			set(y, x, type, -1);
 		}
 		return ret;
+	}
+	
+	public static void Boardcover() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	
+		/* 1. 테스트 케이스 입력 */
+		C = Integer.parseInt(br.readLine().trim());
+		assert C <= 30 : "Error :: C(testCase) <= 30";
+		
+		for(int tc=0; tc<C; tc++) {
+			/* 2. H(Height)과 W(Width) 입력 */
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			H = Integer.parseInt(st.nextToken());  // Height
+			W = Integer.parseInt(st.nextToken());  // Width
+			assert 1 <= H || 1 <= W || H <= 20 || W <=20 : "Error :: 1 <= H,W <= 20";
+
+			/* 3. board에 블럭을 저장 */
+			board = new int[H][W];
+			
+			int countWhiteBlock = 0;
+			for(int hg=0; hg<H; hg++) {
+				String tempString = br.readLine();
+				for(int wd=0; wd<W; wd++) {
+					// 잘못된 블럭이 입력될 경우 예외 처리
+					assert tempString.charAt(wd)=='#' || tempString.charAt(wd)=='.' : 
+						"Error :: block is available only int # or .";
+					if (tempString.charAt(wd)=='#') 
+						board[hg][wd] = 1;
+					else
+						countWhiteBlock++;
+				}
+			}
+			
+			// 데이터가 잘 들어갔는지 출력해서 확인
+//			for(int hg=0; hg<H; hg++) {
+//				for(int wd=0; wd<W; wd++) {
+//					bw.write(String.format("%d",board[hg][wd]));
+//				}
+//				bw.write("\n");
+//			}
+//			bw.write("\n");
+			
+			bw.flush();
+			assert countWhiteBlock <= 50 : // 흰 칸이 50칸을 초과하면 에러 발생
+				"Error :: countWhiteBlock <= 50";
+			// 흰 칸이 3의 배수가 아닐 경우 0 출력 
+			if(countWhiteBlock%3 != 0)
+				bw.write(String.format("%d\n", 0));
+			// 모든 칸이 이미 다 채워져있는 경우
+			else if(countWhiteBlock == 0)
+				bw.write(String.format("%d\n", 1));
+			else
+				bw.write(String.format("%d\n", cover()));
+		}
+		bw.close();
 	}
 	
 	public static void main(String[] args) throws Exception {
