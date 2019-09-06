@@ -66,7 +66,7 @@ public class C66_BOARDCOVER {
 		
 		for(int tc=0; tc<C; tc++) {
 			/* 2. H(Height)과 W(Width) 입력 */
-			StringTokenizer st = new StringTokenizer(br.readLine());
+			StringTokenizer st = new StringTokenizer(br.readLine().trim());
 			H = Integer.parseInt(st.nextToken());  // Height
 			W = Integer.parseInt(st.nextToken());  // Width
 			assert 1 <= H || 1 <= W || H <= 20 || W <=20 : "Error :: 1 <= H,W <= 20";
@@ -96,8 +96,7 @@ public class C66_BOARDCOVER {
 //				bw.write("\n");
 //			}
 //			bw.write("\n");
-			
-			bw.flush();
+
 			assert countWhiteBlock <= 50 : // 흰 칸이 50칸을 초과하면 에러 발생
 				"Error :: countWhiteBlock <= 50";
 			// 흰 칸이 3의 배수가 아닐 경우 0 출력 
@@ -112,7 +111,7 @@ public class C66_BOARDCOVER {
 		bw.close();
 	}
 	
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws IOException {
 		C66_BOARDCOVER.Boardcover();
 	}
 }
