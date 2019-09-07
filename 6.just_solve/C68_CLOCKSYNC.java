@@ -19,27 +19,23 @@ public class C68_CLOCKSYNC {
 	};
 	// 모든 시계가 12시를 가리키는지 확인 
 	public static boolean areAligned() {
-		int checkSum = 0;
-		for(int ck=0; ck<CLOCKS; ck++) {
-			checkSum += clocksNow[ck];
-		}
-		if (checkSum == 12*CLOCKS)
-			return true;
-		else
-			return false;
+		for(int ck=0; ck<CLOCKS; ck++) 
+			if (clocksNow[ck] % 4 != 0) // 12시를 가리키지 않는 시계가 있을 경우 
+				return false;
+		return true;
 	}
+	
 	// 스위치를 눌러 시간을 변경해주는 함수 
 	public static void push(int swtch) {
 		for(int ck=0; ck<linkedClock[swtch].length; ck++) {
-			// 스위치에 연결된 시계가 어떤건지 확인
-			int nClock = linkedClock[swtch][ck];
-			clocksNow[nClock] += 3;
-			if(clocksNow[nClock] == 15) clocksNow[nClock] = 3;
+			int nClock = linkedClock[swtch][ck];  // 스위치에 연결된 시계 확인
+			clocksNow[nClock] += 3;  // 해당 시계를 3시간 추가
+			if(clocksNow[nClock] == 15) clocksNow[nClock] = 3;	// 기존 12시였던 시계는 3시로 
 		}
 	}
 	
 	public static int readySwitch(int swtch) {
-		// 스위치를 다 눌러보았을 경우
+		// 스위치를 다 눌러보았을 경우 결과 반환
 		if(swtch == SWITCH) return areAligned() ? 0 : INF;
 		// switch를 0번 누르는 경우부터 3번 누르는 경우까지
 		int ret = INF;
@@ -60,6 +56,7 @@ public class C68_CLOCKSYNC {
 		
 		while(C-->0) {	// start testCase
 			clocksNow = new int[CLOCKS];
+			
 			/* 16개 시계의 시간 입력 (12, 3, 6, 9 중 하나) */
 			StringTokenizer st = new StringTokenizer(br.readLine().trim());
 			for(int i=0; i<CLOCKS; i++) {
@@ -68,9 +65,10 @@ public class C68_CLOCKSYNC {
 					"Time can be inputted 3, 6, 9, 12";
 				clocksNow[i] = tempClock;
 			}
+			
 			/* 스위치 눌러보기 */
 			int result = readySwitch(0);
-			bw.write(String.format("%d\n", result>INF?-1:result));
+			bw.write(String.format("%d\n", result>=INF?-1:result));
 		}
 		bw.close();
 	}
