@@ -1,4 +1,4 @@
-.imagecenter {
-	display: block;
-	margin: auto;
+img.aligncenter{
+	display:block;
+	margin:0 auto
 }
