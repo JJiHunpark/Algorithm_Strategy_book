@@ -26,7 +26,6 @@
 	<p align="center"> 출처 : https://kugistory.net/7 </p>
 </p>
 
-<br/>
 <!-- 구성 요소 -->
 ## 구성 요소
 - 문제를 더 작은 문제로 분할(Divide)
