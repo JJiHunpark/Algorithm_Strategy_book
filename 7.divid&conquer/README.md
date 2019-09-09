@@ -3,7 +3,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 - [about](#about)
-- [구성 요소](#구성 요소)
+- [구성 요소](#구성-요소)
 - [특성](#특성)
 - [장점](#장점)
 
