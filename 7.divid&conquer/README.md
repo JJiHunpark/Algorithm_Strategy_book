@@ -11,15 +11,7 @@
 
 <center><img src="https://github.com/jihunparkme/Algorithmic-Problem-Solving-Strategies/blob/master/img/7-dc.png"></center>
 
-<img style="float: center;" src="https://github.com/jihunparkme/Algorithmic-Problem-Solving-Strategies/blob/master/img/7-dc.png">
-
-
-
-
-![example](https://github.com/jihunparkme/Algorithmic-Problem-Solving-Strategies/blob/master/img/7-dc.png
-"float:center;")
-
-<div style="text-align: right"> 출처 : https://kugistory.net/76 </div>
+<p style="text-align: right"> 출처 : https://kugistory.net/76 </p>
 
 
 ## 구성 요소
