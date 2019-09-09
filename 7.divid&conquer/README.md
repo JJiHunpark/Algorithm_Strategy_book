@@ -60,7 +60,7 @@
 <br/>// n/2가 n/2번 반복, 1 ~ n/2 까지의 합
 	- = n/2 x n/2 + fastSum(n/2)
 <br/>// 공통된 항 n/2를 따로 빼내면 fastSum(n/2)가 나타남
-
+test
 - fastSum(n)  = 2 x fastSum(n/2) + n<sup>2/4</sup> (n은 짝수)
 	- // fastSum(n/2) + n/2 * n/2 + fastSum(n/2)
     
