@@ -54,31 +54,32 @@
 - 첫 번째 부분은 fastSum(n/2)로 나타낼 수 있지만, 두 번째 문제는 나타낼 수 있는 방법을 생각해야 함
 
 - (n/2+1) + ... + n
-	- (n/2+1) + (n/2+2) + ... (n/2+n/2) <span class="evidence">// 결국, n/2 + n/2 + n/2 + .... 가 n/2번 반복되고, 1+ 2+ 3+ ... + n/2가 남게 됨</span>
-= n/2 x n/2 + (1 +2 + 3 + ... + n/2)
-==// n/2가 n/2번 반복, 1 ~ n/2 까지의 합==
-= n/2 x n/2 + fastSum(n/2)
-==// 공통된 항 n/2를 따로 빼내면 fastSum(n/2)가 나타남==
+	- (n/2+1) + (n/2+2) + ... (n/2+n/2)
+// 결국, n/2 + n/2 + n/2 + .... 가 n/2번 반복되고, 1+ 2+ 3+ ... + n/2가 남게 됨
+	- = n/2 x n/2 + (1 +2 + 3 + ... + n/2)
+// n/2가 n/2번 반복, 1 ~ n/2 까지의 합
+	- = n/2 x n/2 + fastSum(n/2)
+// 공통된 항 n/2를 따로 빼내면 fastSum(n/2)가 나타남
 
-- fastSum(n)  = 2 x fastSum(n/2) + n<sup>2/4</sup>    (n은 짝수)   
-	==// fastSum(n/2) + n/2 * n/2 + fastSum(n/2)==
+- fastSum(n)  = 2 x fastSum(n/2) + n<sup>2/4</sup> (n은 짝수)
+	- // fastSum(n/2) + n/2 * n/2 + fastSum(n/2)
     
 - 결론
-n/2 까지의 합은 : fastSum(n/2)
-n/2+1 ~ n 까지의 합은 : n/2 x n/2 + fastSum(n/2)
+	- n/2 까지의 합은 : fastSum(n/2)
+	- n/2+1 ~ n 까지의 합은 : n/2 x n/2 + fastSum(n/2)
 
 - 그러므로 
-fastSum(n/2) + fastSum(n/2) + n/2 x n/2
- = 2 x fastSum(n/2) + n<sup>2/4</sup>
+	- fastSum(n/2) + fastSum(n/2) + n/2 x n/2
+	- = 2 x fastSum(n/2) + n<sup>2/4</sup>
 
 ```java
 public class C7_1 {
     public static int fastSum(int num) {
         if(num == 1) return 1;
         // 홀수일 경우, 짝수인 n-1번째 까지의 합을 재귀 호출로 구한 후 마지막에 num을 더해줌
-        if(num % 2 == 1) return fastSum(num-1) + num;    
+        if(num % 2 == 1) return fastSum(num-1) + num;
         // 짝수일 경우 더 작은 부분으로 분할하여 재귀 호출
-        return 2*fastSum(num/2) + (num/2)*(num/2);    
+        return 2*fastSum(num/2) + (num/2)*(num/2);
     }
     public static void main(String[] args) {
         System.out.println(fastSum(10));
