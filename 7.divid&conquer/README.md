@@ -20,6 +20,14 @@
 <center><img src="https://github.com/jihunparkme/Algorithmic-Problem-Solving-Strategies/blob/master/img/7-dc.png"></center>
 <p style="text-align: right">출처 : https://kugistory.net/76</p>
 
+<p align="center">
+	<img src="https://github.com/jihunparkme/Algorithmic-Problem-Solving-Strategies/blob/master/img/7-dc.png">
+	<p align="center">
+    출처 : https://kugistory.net/76
+	</p>
+</p>
+
+
 <!-- 구성 요소 -->
 ## 구성 요소
 - 문제를 더 작은 문제로 분할(Divide)
