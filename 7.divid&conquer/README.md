@@ -8,8 +8,8 @@
 - [장점](#장점)
 - [Example 1 : 수열의 빠른 합](#Example_1)
 - [Example 2 : 행렬의 거듭제곱](#Example_2)
-- [병합 정렬(Merge sort)](#병합-정렬(Merge-sort)
-- [퀵 정렬(Quick sort)](#퀵-정렬(Quick-sort)
+- [병합 정렬(Merge sort)](#병합-정렬(Merge-sort))
+- [퀵 정렬(Quick sort)](#퀵-정렬(Quick-sort))
 
 <!-- about -->
 ## about
@@ -26,7 +26,7 @@
 	<p align="center"> 출처 : https://kugistory.net/7 </p>
 </p>
 
-</br>
+<br/>
 <!-- 구성 요소 -->
 ## 구성 요소
 - 문제를 더 작은 문제로 분할(Divide)
