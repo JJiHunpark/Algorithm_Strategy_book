@@ -3,7 +3,7 @@
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 - [about](#about)
-- [구성요소](#구성요소)
+- [구성 요소](#구성 요소)
 - [특성](#특성)
 - [장점](#장점)
 
@@ -18,7 +18,7 @@
 - 일반 재귀 호출은 항상 문제를 한 조각과 나머지로 쪼개는 방식, 분할정복법은 항상 문제를 절반씩으로 나누는 분할 정복 알고리즘
 
 <center><img src="https://github.com/jihunparkme/Algorithmic-Problem-Solving-Strategies/blob/master/img/7-dc.png"></center>
-<p style="text-align: right"> 출처 : https://kugistory.net/76 </p>
+<p style="text-align: right">출처 : https://kugistory.net/76</p>
 
 <!-- 구성 요소 -->
 ## 구성 요소
