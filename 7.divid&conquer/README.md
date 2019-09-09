@@ -9,7 +9,10 @@
 
 - 일반 재귀 호출은 항상 문제를 한 조각과 나머지로 쪼개는 방식, 분할정복법은 항상 문제를 절반씩으로 나누는 분할 정복 알고리즘
 
-<center><img src="/Algorithmic-Problem-Solving-Strategies/blob/master/img/7-dc.png"></center>
+<center><img src="./img/7-dc.png"></center>
+
+<center><img src="https://github.com/jihunparkme/Algorithmic-Problem-Solving-Strategies/blob/master/img/7-dc.png"></center>
+
 <p>
 	<img src="https://github.com/jihunparkme/Algorithmic-Problem-Solving-Strategies/blob/master/img/7-dc.png" style="margin-left: auto; margin-right: auto; display: block;"/>
 </p>
