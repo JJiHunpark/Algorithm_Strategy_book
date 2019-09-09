@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
-public class C63_solve {
+public class C63_BOGGLE {
 	static int[] dx = {-1, 0, 1, 1, 1, 0, -1, -1};
 	static int[] dy = {-1, -1, -1, 0, 1, 1, 1, 0};
 	static ArrayList<String> board = new ArrayList<String>();
@@ -70,6 +70,6 @@ public class C63_solve {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		C63_solve.run();
+		C63_BOGGLE.run();
 	}
 }
