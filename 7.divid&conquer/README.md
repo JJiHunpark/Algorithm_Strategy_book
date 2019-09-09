@@ -1,5 +1,13 @@
 # Divide  & Conquer
 
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+- [about](#about)
+- [구성요소](#구성요소)
+- [특성](#특성)
+- [장점](#장점)
+
+<!-- about -->
 ## about
 - 가장 유명한 알고리즘 디자인 패러다임
 
@@ -12,7 +20,7 @@
 <center><img src="https://github.com/jihunparkme/Algorithmic-Problem-Solving-Strategies/blob/master/img/7-dc.png"></center>
 <p style="text-align: right"> 출처 : https://kugistory.net/76 </p>
 
-
+<!-- 구성 요소 -->
 ## 구성 요소
 - 문제를 더 작은 문제로 분할(Divide)
 
@@ -20,13 +28,13 @@
 
 - 더이상 답을 분할하지 않고 곧장 풀 수 있는 매우 작은 문제(base case)
 
-
+<!-- 특성 -->
 ## 특성
 - 문제를 둘 이상의 부분 분제로 나누는 자연스러운 방법이 있어야 함
 
 - 부분 문제의 답을 조합해 원래 문제의 답을 계산하는 효율적인 방법이 있어야 함
 
-
+<!-- 장점 -->
 ## 장점
 - 같은 작업을 더 빠르게 처리
 
