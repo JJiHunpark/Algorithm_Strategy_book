@@ -64,7 +64,8 @@
 	==// 공통된 항 n/2를 따로 빼내면 fastSum(n/2)가 나타남
 ==
 
-- fastSum(n)  = 2 x fastSum(n/2) + n<sup>2/4</sup>    (n은 짝수)   
+- fastSum(n)  = 2 x fastSum(n/2) + n
+2/4</sup>    (n은 짝수)   
 	==// fastSum(n/2) + n/2 * n/2 + fastSum(n/2)
 ==
 - 결론
@@ -93,7 +94,7 @@ public class C7_1 {
 <!-- Example 2 -->
 ## Example_2
 ### 행렬의 거듭제곱
-- n x n 크기의 행렬 A가 주어질 때, A의 거듭 제곱(power) Am은 A를 연속해서 m번 곱한 것
+- n x n 크기의 행렬 A가 주어질 때, A의 거듭 제곱(power) A<sup>m</sup>은 A를 연속해서 m번 곱한 것
 
 - m이 커질수록 시간이 오래 걸리는 작업
 
