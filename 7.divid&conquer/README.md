@@ -61,8 +61,7 @@
 = n/2 x n/2 + fastSum(n/2)
 ==// 공통된 항 n/2를 따로 빼내면 fastSum(n/2)가 나타남==
 
-- fastSum(n)  = 2 x fastSum(n/2) + n
-2/4</sup>    (n은 짝수)   
+- fastSum(n)  = 2 x fastSum(n/2) + n<sup>2/4</sup>    (n은 짝수)   
 	==// fastSum(n/2) + n/2 * n/2 + fastSum(n/2)==
 - 결론
 n/2 까지의 합은 : fastSum(n/2)
