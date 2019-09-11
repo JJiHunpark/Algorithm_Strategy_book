@@ -11,7 +11,6 @@
 - [병합 정렬(Merge sort)](#병합-정렬_Merge-sort)
 - [퀵 정렬(Quick sort)](#퀵-정렬_Quick-sort)
 
-
 <!-- about -->
 ## about
 - 가장 유명한 알고리즘 디자인 패러다임
