@@ -1,4 +1,4 @@
-import java.io.*;
+﻿import java.io.*;
 
 public class C7_5_QUADTREE {
 	public static int C, position;
@@ -10,6 +10,7 @@ public class C7_5_QUADTREE {
 			return quadTree.charAt(position-1) + "";
 		}
 		else
+		// 첫 글자가 x일 경우
 			
 	}
 	
