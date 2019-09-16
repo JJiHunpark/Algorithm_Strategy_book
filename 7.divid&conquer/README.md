@@ -189,13 +189,3 @@ public class C7_2 {
 	<p align="center"> 출처 : https://www.techiedelight.com/quicksort/ </p>
 </p>
 
-
-
-
-
-
-
-
-
-
-
